@@ -52,7 +52,7 @@ function App() {
             <Create data={chosenExData} />
           </Route>
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact component={Dashboard} />
           <Route path="/browse/:workouttype" component={Browse} />
         </Switch>
       </MeContext.Provider>
