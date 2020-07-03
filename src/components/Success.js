@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "../styles.css";
 import Footer from "./Footer";
-import Spacer from "../components/Spacer";
+// import Spacer from "../components/Spacer";
 import Navbar from "../components/Navbar";
 import { useUtils } from "../context/UtilContext";
 
@@ -29,18 +29,11 @@ const Browse = () => {
           id="blank"
           style={{ display: "flex", flexDirection: "column" }}
         ></div>
-        {browsedData &&
-          browsedData.map((item) => (
-            <>
-              <div>{workouttype}</div>
-              <Spacer />
-              <div>{item.name}</div>
-              <div>{item.picture}</div>
-              <div>{item._id}</div>
-              <div>{item.description}</div>
-              <div>{item.creator}</div>
-            </>
-          ))}
+        <Link to={`/dashboard`}>
+          <div className="container">
+            <div>workout successfully created</div>
+          </div>
+        </Link>
       </div>
       <Footer />
     </>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { Switch, Route } from "react-router-dom";
 
 // import './styles.css';
@@ -11,6 +10,7 @@ import Exercises from "./components/Exercises";
 import Dashboard from "./components/Dashboard";
 import Browse from "./components/Browse";
 import MeContext from "./context/MeContext";
+import Success from "./components/Success";
 import { UtilContext } from "./context/UtilContext";
 
 function App() {
@@ -54,6 +54,7 @@ function App() {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/" exact component={Login} />
           <Route path="/browse/:workouttype" component={Browse} />
+          <Route path="/success" component={Success} />
         </Switch>
       </MeContext.Provider>
     </UtilContext.Provider>
