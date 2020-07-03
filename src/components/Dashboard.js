@@ -11,14 +11,16 @@ import "slick-carousel/slick/slick-theme.css";
 import browseBeginner from "../img/beginner.png";
 import browseAdvanced from "../img/advanced.png";
 import browseBeast from "../img/beast.png";
+import { useUtils } from "../context/UtilContext";
 
 function Dashboard() {
   const me = useContext(MeContext);
+  const serverURL = useUtils();
 
   const [top5Data, setTop5Data] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3002/api/workout/top5")
+    fetch(`${serverURL}/workout/top5`)
       .then((res) => res.json())
       // .then((res) => console.log("top5 data :", res))
       .then((data) => setTop5Data(data));

@@ -4,15 +4,18 @@ import "../styles.css";
 import Footer from "./Footer";
 import Spacer from "../components/Spacer";
 import Navbar from "../components/Navbar";
+import { useUtils } from "../context/UtilContext";
 
 const Browse = () => {
+  const serverURL = useUtils();
+
   const { workouttype } = useParams();
   //   console.log("component browse.js -> wo type : ", workouttype);
 
   const [browsedData, setBrowsedData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3002/api/browse/${workouttype}`)
+    fetch(`${serverURL}/browse/${workouttype}`)
       .then((res) => res.json())
       //   .then((res) => console.log("browsedata :", res));
       .then((data) => setBrowsedData(data));

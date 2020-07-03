@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 // import "../styles.css";
 import Footer from "./Footer";
 import Spacer from "./Spacer";
 import Navbar from "./Navbar";
+import { useUtils } from "../context/UtilContext";
 
 const Create = ({ data }) => {
+  const serverURL = useUtils();
+  const history = useHistory();
+
   const [equipmentData, setEquipmentData] = useState(null);
   const [workoutName, setWorkoutName] = useState(null);
   const [workoutType, setWorkoutType] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3002/api/equipment")
+    fetch(`${serverURL}/equipment`)
       .then((res) => res.json())
       .then((data) => setEquipmentData(data));
   }, []);
@@ -42,12 +46,12 @@ const Create = ({ data }) => {
       method: "POST",
       headers: myHeaders,
       body: raw,
-      redirect: window.location.replace("http://localhost:3000/dashboard"),
+      // redirect: window.location.replace(`${serverURL}/dashboard`),
     };
 
-    fetch("http://localhost:3002/api/workout/add", requestOptions)
-      .then((response) => response.text())
-      .then((result) => console.log(result))
+    fetch(`${serverURL}/workout/add`, requestOptions)
+      .then(() => history.push("/dashboard"))
+      // .then(() => history.push("/dashboard"))
       .catch((error) => console.log("error", error));
   };
 
