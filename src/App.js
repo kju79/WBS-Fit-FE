@@ -27,13 +27,13 @@ function App() {
     fetch(`${serverURL}/user/me/5efca5151e086210185f4f2a`)
       .then((res) => res.json())
       .then((data) => setMe(data));
-  }, []);
+  }, [serverURL]);
 
   useEffect(() => {
     fetch(`${serverURL}/exercise`)
       .then((res) => res.json())
       .then((data) => setTrainingData(data));
-  }, []);
+  }, [serverURL]);
 
   console.log(process.env.REACT_APP_SERVER);
 
