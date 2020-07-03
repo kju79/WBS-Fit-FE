@@ -50,7 +50,7 @@ const Create = ({ data }) => {
     };
 
     fetch(`${serverURL}/workout/add`, requestOptions)
-      .then(() => history.push("/dashboard"))
+      .then(() => history.push("/success"))
       // .then(() => history.push("/dashboard"))
       .catch((error) => console.log("error", error));
   };
