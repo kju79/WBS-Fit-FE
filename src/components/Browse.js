@@ -19,7 +19,7 @@ const Browse = () => {
       .then((res) => res.json())
       //   .then((res) => console.log("browsedata :", res));
       .then((data) => setBrowsedData(data));
-  }, [workouttype]);
+  }, [workouttype, serverURL]);
 
   return (
     <>

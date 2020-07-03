@@ -18,7 +18,7 @@ const Create = ({ data }) => {
     fetch(`${serverURL}/equipment`)
       .then((res) => res.json())
       .then((data) => setEquipmentData(data));
-  }, []);
+  }, [serverURL]);
 
   const printValues = (e) => {
     e.preventDefault();
