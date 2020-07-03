@@ -55,7 +55,7 @@ const Create = ({ data }) => {
       .catch((error) => console.log("error", error));
   };
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <div id="wrapper">
@@ -70,7 +70,7 @@ const Create = ({ data }) => {
             equipmentData.map((equipment) => (
               <div key={equipment}>
                 <button>
-                  <Link to={`/x/${equipment}`}>{equipment}</Link>
+                  <Link to={`/exercise/${equipment}`}>{equipment}</Link>
                 </button>
               </div>
             ))}
@@ -144,7 +144,7 @@ const Create = ({ data }) => {
                 <span>beast</span>
               </div>
               <div>
-                <button id="saveButton">save workout</button>
+                <input type="submit" id="saveButton" value="save workout" />
               </div>
             </form>
           </>
