@@ -24,7 +24,7 @@ function Dashboard() {
       .then((res) => res.json())
       // .then((res) => console.log("top5 data :", res))
       .then((data) => setTop5Data(data));
-  }, [serverURL]);
+  }, [serverURL, me]);
 
   let settings = {
     dots: true,
