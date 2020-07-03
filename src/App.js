@@ -45,7 +45,7 @@ function App() {
           <Route path="/create/:equipment/:muscle">
             <Exercises data={chosenExData} onChoose={setChosenExData} />
           </Route>
-          <Route path="/x/:equipment">
+          <Route path="/create/:equipment">
             <Equipments trainingData={trainingData} />
           </Route>
           <Route path="/create">
