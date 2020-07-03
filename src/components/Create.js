@@ -71,7 +71,7 @@ const Create = ({ data }) => {
               </div>
             ))}
         </div>
-        {data != "" && (
+        {data && (
           <>
             <Spacer />
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../styles.css";
 import Footer from "./Footer";
 import Spacer from "../components/Spacer";
@@ -16,7 +16,7 @@ const Browse = () => {
       .then((res) => res.json())
       //   .then((res) => console.log("browsedata :", res));
       .then((data) => setBrowsedData(data));
-  }, []);
+  }, [workouttype]);
 
   return (
     <>

@@ -13,7 +13,6 @@ import browseAdvanced from "../img/advanced.png";
 import browseBeast from "../img/beast.png";
 
 function Dashboard() {
-  const [userRoutine, setUserRoutine] = useState("");
   const me = useContext(MeContext);
 
   const [top5Data, setTop5Data] = useState(null);
