@@ -3,14 +3,17 @@ import { Link, useParams } from "react-router-dom";
 // import "../styles.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { useUtils } from "../context/UtilContext";
 
 const Equipments = (props, { selectedExercise }) => {
+  const serverURL = useUtils();
+
   const { equipment } = useParams();
 
   const [musclegroupData, setMusclegroupData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3002/api/exercise/${equipment}/options`)
+    fetch(`${serverURL}/exercise/${equipment}/options`)
       .then((res) => res.json())
       .then((data) => setMusclegroupData(data));
   }, [equipment]);

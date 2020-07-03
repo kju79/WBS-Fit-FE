@@ -6,14 +6,17 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "./Navbar";
+import { useUtils } from "../context/UtilContext";
 
 const Exercises = ({ onChoose, data }) => {
+  const serverURL = useUtils();
+
   const { equipment, muscle } = useParams();
 
   const [exerciseData, setExerciseData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3002/api/exercise/${equipment}/${muscle}`)
+    fetch(`${serverURL}/exercise/${equipment}/${muscle}`)
       .then((res) => res.json())
       .then((data) => setExerciseData([...data]));
   }, [equipment, muscle]);
