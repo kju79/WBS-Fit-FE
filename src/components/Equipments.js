@@ -16,7 +16,7 @@ const Equipments = (props, { selectedExercise }) => {
     fetch(`${serverURL}/exercise/${equipment}/options`)
       .then((res) => res.json())
       .then((data) => setMusclegroupData(data));
-  }, [equipment]);
+  }, [equipment, serverURL]);
 
   return (
     <>

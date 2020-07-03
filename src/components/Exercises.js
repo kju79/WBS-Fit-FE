@@ -19,7 +19,7 @@ const Exercises = ({ onChoose, data }) => {
     fetch(`${serverURL}/exercise/${equipment}/${muscle}`)
       .then((res) => res.json())
       .then((data) => setExerciseData([...data]));
-  }, [equipment, muscle]);
+  }, [equipment, muscle, serverURL]);
 
   return (
     <>
