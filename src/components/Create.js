@@ -31,7 +31,7 @@ const Create = ({ data }) => {
     // console.log("outta printvalues : ", data);
     const selectedExercises = [];
     data.forEach((item) => selectedExercises.push(item._id));
-    console.log(selectedExercises);
+    // console.log(selectedExercises);
 
     const raw = JSON.stringify({
       name: `${workoutName}`,
@@ -70,7 +70,7 @@ const Create = ({ data }) => {
             equipmentData.map((equipment) => (
               <div key={equipment}>
                 <button>
-                  <Link to={`/exercise/${equipment}`}>{equipment}</Link>
+                  <Link to={`/create/${equipment}`}>{equipment}</Link>
                 </button>
               </div>
             ))}
