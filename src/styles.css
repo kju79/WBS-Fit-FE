@@ -1,8 +1,17 @@
 @font-face {
-  font-family: "Dirty Ego";
-  src: url("http://www.fontsaddict.com/fontface/dirty-ego.TTF");
+  font-family: "BigNoodleTitling";
+  src: url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.eot");
+  src: url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/ff78c5e2b6c3846035dae28cdaa65583.svg#BigNoodleTitling")
+      format("svg");
 }
-
 body {
   font-family: BigNoodleTitling;
   font-size: 1.5rem;
