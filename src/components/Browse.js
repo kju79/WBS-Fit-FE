@@ -5,6 +5,8 @@ import Footer from "./Footer";
 import Spacer from "../components/Spacer";
 import Navbar from "../components/Navbar";
 import { useUtils } from "../context/UtilContext";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Browse = () => {
   const serverURL = useUtils();
@@ -29,16 +31,37 @@ const Browse = () => {
           id="blank"
           style={{ display: "flex", flexDirection: "column" }}
         ></div>
+        <div id="blank"></div>
         {browsedData &&
-          browsedData.map((item) => (
+          browsedData.map((item, i) => (
             <>
-              <div>{workouttype}</div>
+              {/* {console.log("standardSet : ", item.standardSet)}
+              <div key={`workoutType${i}`}>{workouttype}</div>
               <Spacer />
-              <div>{item.name}</div>
-              <div>{item.picture}</div>
-              <div>{item._id}</div>
-              <div>{item.description}</div>
-              <div>{item.creator}</div>
+              <div key={`itemName${i}`}>{item.name}</div>
+              <div key={`itemPic${i}`}>{item.picture}</div>
+              <div key={`itemId${i}`}>{item._id}</div>
+              <div key={`desc${i}`}>{item.description}</div>
+              <div key={`creator${i}`}>{item.creator}</div>
+              {item.standardSet.map((eachSet) => (
+                <div>{eachSet.reps}</div>
+              ))} */}
+              <div className="showBrowseWorkout">
+                <div className="showBrowseWorkoutImage">
+                  <img src={item.picture} alt={item.name} />
+                </div>
+
+                <div className="showBrowseWorkoutInfo">
+                  <div className="showBrowseWorkoutName">{item.name}</div>
+                  <div className="showBrowseWorkoutDesc">
+                    {item.description}
+                  </div>
+                </div>
+                <div className="showBrowseAdd" style={{ width: "35px" }}>
+                  <FontAwesomeIcon icon={faPlus} />
+                </div>
+              </div>
+              <Spacer />
             </>
           ))}
       </div>

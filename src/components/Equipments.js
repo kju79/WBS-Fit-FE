@@ -34,7 +34,7 @@ const Equipments = (props, { selectedExercise }) => {
           {musclegroupData &&
             musclegroupData.map((muscle) => (
               <div key={muscle}>
-                <button style={{ width: "150px" }}>
+                <button style={{ width: "165px" }}>
                   <Link to={`/create/${equipment}/${muscle}`}>{muscle}</Link>
                 </button>
               </div>
