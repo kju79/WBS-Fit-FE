@@ -11,6 +11,7 @@ import Dashboard from "./components/Dashboard";
 import Browse from "./components/Browse";
 import MeContext from "./context/MeContext";
 import Success from "./components/Success";
+import Routine from "./components/Routine";
 import { UtilContext } from "./context/UtilContext";
 
 function App() {
@@ -35,8 +36,6 @@ function App() {
       .then((data) => setTrainingData(data));
   }, [serverURL]);
 
-  console.log(process.env.REACT_APP_SERVER);
-
   return (
     <UtilContext.Provider value={serverURL}>
       <MeContext.Provider value={me}>
@@ -55,6 +54,7 @@ function App() {
           <Route path="/" exact component={Login} />
           <Route path="/browse/:workouttype" component={Browse} />
           <Route path="/success" component={Success} />
+          <Route path="/me/routine/:routineId" component={Routine} />
         </Switch>
       </MeContext.Provider>
     </UtilContext.Provider>

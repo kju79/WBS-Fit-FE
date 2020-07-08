@@ -75,7 +75,7 @@ function Dashboard() {
           <div
             className="containerA"
             style={{
-              width: "195px",
+              width: "170px",
               height: "160px",
               marginRight: "5px",
             }}
@@ -104,7 +104,7 @@ function Dashboard() {
           <div
             className="containerA"
             style={{
-              width: "195px",
+              width: "170px",
               maxHeight: "160px",
               marginLeft: "5px",
               justifyContent: "space-between",
@@ -125,33 +125,56 @@ function Dashboard() {
             >
               {me &&
                 me.wo_routine &&
-                me.wo_routine.map((routine) => (
+                me.wo_routine.map((routine, i) => (
                   <>
-                    <div
-                      className="userRoutinesMap"
-                      style={{
-                        borderBottom: "2px solid  #00a0e3",
-                        borderTop: "2px solid  #00a0e3",
-                      }}
-                    >
-                      <div className="userRoutinesImage">
-                        <img src={routine.picture} alt={routine.name} />
-                      </div>
-                      <div className="userRoutinesInfo">
-                        <div className="userRoutinesName">{routine.name}</div>
+                    <Link key={i} to={`/me/routine/${routine._id}`}>
+                      <div
+                        className="userRoutinesMap"
+                        key={`userRoutinesMap${i}`}
+                        style={{
+                          borderBottom: "2px solid  #00a0e3",
+                          borderTop: "2px solid  #00a0e3",
+                        }}
+                      >
+                        <div
+                          className="userRoutinesImage"
+                          key={`userRoutinesImage${i}`}
+                          style={{ marginRight: "10px" }}
+                        >
+                          <img
+                            key={`image-${i}`}
+                            src={routine.picture}
+                            alt={routine.name}
+                          />
+                        </div>
+                        <div
+                          className="userRoutinesInfo"
+                          key={`userRoutinesInfo${i}`}
+                        >
+                          <div
+                            className="userRoutinesName"
+                            key={`userRoutinesName${i}`}
+                          >
+                            {routine.name}
+                          </div>
 
-                        <div className="userRoutinesSubline">
-                          {routine.description}
+                          <div
+                            className="userRoutinesSubline"
+                            key={`userRoutinesSubline${i}`}
+                            style={{ color: "#fff", fontSize: "14px" }}
+                          >
+                            {routine.description}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </>
                 ))}
             </div>
           </div>
         </div>
         <Spacer />
-        <div className="container" style={{ height: "50px", width: "400px" }}>
+        <div className="container" style={{ height: "50px", width: "350px" }}>
           <Link to={`/create`}>
             <button id="dashboardButton">
               <span>create</span> your own <span>workout</span>
@@ -163,7 +186,7 @@ function Dashboard() {
           <div
             className="containerA"
             style={{
-              width: "195px",
+              width: "170px",
               height: "220px",
               marginRight: "5px",
             }}
@@ -173,14 +196,14 @@ function Dashboard() {
             </div>
             <Slider {...settings}>
               {top5Data &&
-                top5Data.map((item) => (
+                top5Data.map((item, i) => (
                   <>
-                    <div className="top5Image">
+                    <div key={`top5Image${i}`} className="top5Image">
                       <img
                         style={{
                           // marginBottom: "3px",
                           padding: "0",
-                          width: "195px",
+                          width: "170px",
                           height: "110px",
                           borderTop: "2px solid #00a0e3",
                           // borderBottom: "2px solid #00a0e3",
@@ -190,8 +213,10 @@ function Dashboard() {
                         alt={item.name}
                       />
                     </div>
-                    <div className="top5Name">{item.name}</div>
-                    <div className="top5Ratings">
+                    <div key={`top5Name${i}`} className="top5Name">
+                      {item.name}
+                    </div>
+                    <div key={`top5Ratings${i}`} className="top5Ratings">
                       {item.numberOfRatings}
                       {item.numberOfRatings === 1 ? " rating" : " ratings"} |
                       average : {item.average}
@@ -203,7 +228,7 @@ function Dashboard() {
           <div
             className="containerA"
             style={{
-              width: "195px",
+              width: "170px",
               height: "220px",
               marginLeft: "5px",
             }}
@@ -214,7 +239,7 @@ function Dashboard() {
           </div>
         </div>
         <Spacer />
-        <div className="containerA" style={{ width: "400px" }}>
+        <div className="containerA" style={{ width: "350px" }}>
           <div className="dashTopic">
             browse <span>community</span>
           </div>
