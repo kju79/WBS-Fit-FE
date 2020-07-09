@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { Fragment, useEffect, useContext, useState } from "react";
 import MeContext from "../context/MeContext";
 // import "../styles.css";
 import Footer from "./Footer";
@@ -11,6 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 import browseBeginner from "../img/beginner.png";
 import browseAdvanced from "../img/advanced.png";
 import browseBeast from "../img/beast.png";
+import Quickshot from "../img/quickshot.png";
 import { useUtils } from "../context/UtilContext";
 
 function Dashboard() {
@@ -34,6 +35,7 @@ function Dashboard() {
     slidesToShow: 1,
     slidesToScroll: 1,
     fade: true,
+    blur: true,
     autoplay: true,
   };
 
@@ -126,8 +128,8 @@ function Dashboard() {
               {me &&
                 me.wo_routine &&
                 me.wo_routine.map((routine, i) => (
-                  <>
-                    <Link key={i} to={`/me/routine/${routine._id}`}>
+                  <Fragment key={i}>
+                    <Link to={`/me/routine/${routine._id}`}>
                       <div
                         className="userRoutinesMap"
                         key={`userRoutinesMap${i}`}
@@ -168,7 +170,7 @@ function Dashboard() {
                         </div>
                       </div>
                     </Link>
-                  </>
+                  </Fragment>
                 ))}
             </div>
           </div>
@@ -197,7 +199,7 @@ function Dashboard() {
             <Slider {...settings}>
               {top5Data &&
                 top5Data.map((item, i) => (
-                  <>
+                  <Fragment key={item._id}>
                     <div key={`top5Image${i}`} className="top5Image">
                       <img
                         style={{
@@ -221,20 +223,36 @@ function Dashboard() {
                       {item.numberOfRatings === 1 ? " rating" : " ratings"} |
                       average : {item.average}
                     </div>
-                  </>
+                  </Fragment>
                 ))}
             </Slider>
           </div>
           <div
             className="containerA"
             style={{
-              width: "170px",
+              width: "100%",
               height: "220px",
               marginLeft: "5px",
             }}
           >
-            <div className="dashTopic">
+            <div className="dashTopic" style={{ marginBottom: "7px" }}>
               quick <span>shot</span>
+              <div className="top5Image">
+                <img
+                  style={{
+                    // marginBottom: "3px",
+                    padding: "0",
+                    width: "165px",
+                    height: "110px",
+                    borderTop: "2px solid #00a0e3",
+                    marginTop: "5px",
+                    // borderBottom: "2px solid #00a0e3",
+                  }}
+                  src={Quickshot}
+                />
+              </div>
+              <div className="top5Name">BONFIRE MAX</div>
+              <div className="top5Ratings">new beginner workout</div>
             </div>
           </div>
         </div>
