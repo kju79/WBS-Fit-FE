@@ -1,6 +1,7 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 import "../styles.css";
 import Footer from "./Footer";
 import MeContext from "../context/MeContext";
@@ -10,12 +11,10 @@ import Burger from "../img/burger.png";
 
 const Browse = () => {
   const me = useContext(MeContext);
-  //   console.log(useParams());
+
 
   const { routineId } = useParams();
 
-  // console.log("routine id : ", routineId);
-  // console.log("me.exercises : ", me.wo_routine[0].exercises);
 
   const found = me.wo_routine.find((element) => element._id === routineId);
 

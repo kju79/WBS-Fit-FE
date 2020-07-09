@@ -127,38 +127,21 @@ function Dashboard() {
             >
               {me &&
                 me.wo_routine &&
-                me.wo_routine.map((routine, i) => (
-                  <Fragment key={i}>
-                    <Link to={`/me/routine/${routine._id}`}>
-                      <div
-                        className="userRoutinesMap"
-                        key={`userRoutinesMap${i}`}
-                        style={{
-                          borderBottom: "2px solid  #00a0e3",
-                          borderTop: "2px solid  #00a0e3",
-                        }}
-                      >
-                        <div
-                          className="userRoutinesImage"
-                          key={`userRoutinesImage${i}`}
-                          style={{ marginRight: "10px" }}
-                        >
-                          <img
-                            key={`image-${i}`}
-                            src={routine.picture}
-                            alt={routine.name}
-                          />
-                        </div>
-                        <div
-                          className="userRoutinesInfo"
-                          key={`userRoutinesInfo${i}`}
-                        >
-                          <div
-                            className="userRoutinesName"
-                            key={`userRoutinesName${i}`}
-                          >
-                            {routine.name}
-                          </div>
+
+                me.wo_routine.map((routine) => (
+                  <>
+                    <div
+                      className="userRoutinesMap"
+                      style={{
+                        borderBottom: "2px solid  #00a0e3",
+                        borderTop: "2px solid  #00a0e3",
+                      }}
+                    >
+                      <div className="userRoutinesImage">
+                        <img src={routine.picture} alt="user routine" />
+                      </div>
+                      <div className="userRoutinesInfo">
+                        <div className="userRoutinesName">{routine.name}</div>
 
                           <div
                             className="userRoutinesSubline"
@@ -212,7 +195,7 @@ function Dashboard() {
                         }}
                         src={item.picture}
                         key={item._id}
-                        alt={item.name}
+                        alt="top5image"
                       />
                     </div>
                     <div key={`top5Name${i}`} className="top5Name">
