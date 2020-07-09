@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useContext, useState } from "react";
 import MeContext from "../context/MeContext";
-// import "../styles.css";
 import Footer from "./Footer";
 import Spacer from "../components/Spacer";
 import Navbar from "../components/Navbar";
@@ -23,7 +22,6 @@ function Dashboard() {
   useEffect(() => {
     fetch(`${serverURL}/workout/top5`)
       .then((res) => res.json())
-      // .then((res) => console.log("top5 data :", res))
       .then((data) => setTop5Data(data));
   }, [serverURL, me]);
 
