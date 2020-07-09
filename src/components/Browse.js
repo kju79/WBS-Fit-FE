@@ -31,7 +31,10 @@ const Browse = () => {
           id="blank"
           style={{ display: "flex", flexDirection: "column" }}
         ></div>
-        <div id="blank"></div>
+        <div style={{ height: "25px" }}></div>
+        <div style={{ fontSize: "3rem", marginBottom: "10px" }}>
+          <span style={{ color: "#00a0e3" }}>{workouttype}</span> workouts
+        </div>
         {browsedData &&
           browsedData.map((item) => (
             <Fragment key={item._id}>

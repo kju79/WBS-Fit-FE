@@ -1,5 +1,6 @@
 import React from "react";
 import NavbarIcon from "../img/navbar_icon.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,9 @@ const Navbar = () => {
         <div>
           <div id="logo">
             <div id="logoName">
-              W B S <span>F I T</span>
+              <Link to={`/dashboard`}>
+                W B S <span>F I T</span>
+              </Link>
             </div>
             <div id="logoSlogan">a community based fitness app</div>
           </div>

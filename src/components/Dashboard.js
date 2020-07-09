@@ -141,7 +141,7 @@ function Dashboard() {
                         <div
                           className="userRoutinesImage"
                           key={`userRoutinesImage${i}`}
-                          style={{ marginRight: "10px" }}
+                          style={{ marginRight: "5px" }}
                         >
                           <img
                             key={`image-${i}`}
@@ -254,8 +254,12 @@ function Dashboard() {
                 src={Quickshot}
               />
             </div>
-            <div className="top5Name">BONFIRE MAX</div>
-            <div className="top5Ratings">new beginner workout</div>
+            <div className="top5Name" style={{ textAlign: "center" }}>
+              BONFIRE MAX
+            </div>
+            <div className="top5Ratings" style={{ textAlign: "center" }}>
+              new beginner workout
+            </div>
           </div>
         </div>
         <Spacer />
