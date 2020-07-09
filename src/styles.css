@@ -50,6 +50,18 @@ a:visited {
   text-align: center;
 }
 
+.containerAScroll {
+  box-shadow: 0px 3px 0px 0px #00a0e3;
+  border-radius: 3px;
+  padding: 2px 0px;
+  margin: 5px 0px;
+  background-color: #3b3b3b;
+  text-align: center;
+}
+.containerAScroll::-webkit-scrollbar {
+  display: none;
+}
+
 .userRoutinesMap {
   background-color: #000;
   width: 100%;
@@ -87,6 +99,22 @@ a:visited {
   margin-left: 5px;
   font-size: 18px;
   text-align: left;
+}
+
+.dashTopicScroll {
+  padding: 5px 0px;
+  margin-left: 5px;
+  font-size: 18px;
+  text-align: left;
+  overflow-y: scroll;
+}
+
+.dashTopicScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.dashTopicScroll span {
+  color: #00a0e3;
 }
 
 .dashTopic span {

@@ -104,7 +104,7 @@ function Dashboard() {
             </div>
           </div>
           <div
-            className="containerA"
+            className="containerAScroll"
             style={{
               width: "170px",
               maxHeight: "160px",
@@ -112,6 +112,7 @@ function Dashboard() {
               justifyContent: "space-between",
               flexWrap: "nowrap",
               overflow: "hidden",
+              overflowY: "scroll",
             }}
           >
             <div className="dashTopic">
