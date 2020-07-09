@@ -134,7 +134,7 @@ function Dashboard() {
                       }}
                     >
                       <div className="userRoutinesImage">
-                        <img src={routine.picture} alt={routine.name} />
+                        <img src={routine.picture} alt="user routine" />
                       </div>
                       <div className="userRoutinesInfo">
                         <div className="userRoutinesName">{routine.name}</div>
@@ -186,7 +186,7 @@ function Dashboard() {
                         }}
                         src={item.picture}
                         key={item._id}
-                        alt={item.name}
+                        alt="top5image"
                       />
                     </div>
                     <div className="top5Name">{item.name}</div>
