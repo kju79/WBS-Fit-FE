@@ -109,7 +109,7 @@ const Browse = () => {
         </div>
         <div className="routineWorkoutContainer">
           <div className="routineWorkoutPic">
-            <img src={found.picture} alt="" />
+            <img src={found.picture} alt="Picture" />
           </div>
           <div className="routineWorkoutName">
             {found.name}
@@ -128,7 +128,7 @@ const Browse = () => {
                 <div className="routineSetsContainer">
                   <div className="routineSetInfo">
                     <div className="routineSetsName">
-                      <img src={Burger} alt="" />
+                      <img src={Burger} alt="BurgerIcon" />
                       {each.exercise_name}
                     </div>
                   </div>
@@ -136,7 +136,7 @@ const Browse = () => {
                     <div className="routinesSetPic">
                       <img
                         src="https://www.bodybuilding.com/images/2020/xdb/cropped/xdb-22b-wide-grip-barbell-curl-m1-square-600x600.jpg"
-                        alt=""
+                        alt="routinePic"
                       />
                     </div>
                     <div className="routinesSets">

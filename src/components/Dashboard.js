@@ -248,6 +248,7 @@ function Dashboard() {
                     marginTop: "5px",
                     // borderBottom: "2px solid #00a0e3",
                   }}
+                  alt="Quickshot"
                   src={Quickshot}
                 />
               </div>
