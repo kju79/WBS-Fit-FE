@@ -141,7 +141,7 @@ function Dashboard() {
                         <div
                           className="userRoutinesImage"
                           key={`userRoutinesImage${i}`}
-                          style={{ marginRight: "10px" }}
+                          style={{ marginRight: "5px" }}
                         >
                           <img
                             key={`image-${i}`}
@@ -235,25 +235,30 @@ function Dashboard() {
               marginLeft: "5px",
             }}
           >
-            <div className="dashTopic" style={{ marginBottom: "7px" }}>
+            <div className="dashTopic">
               quick <span>shot</span>
-              <div className="top5Image">
-                <img
-                  style={{
-                    // marginBottom: "3px",
-                    padding: "0",
-                    width: "165px",
-                    height: "110px",
-                    borderTop: "2px solid #00a0e3",
-                    marginTop: "5px",
-                    // borderBottom: "2px solid #00a0e3",
-                  }}
-                  alt="Quickshot"
-                  src={Quickshot}
-                />
-              </div>
-              <div className="top5Name">BONFIRE MAX</div>
-              <div className="top5Ratings">new beginner workout</div>
+            </div>
+
+            <div className="top5Image">
+              <img
+                style={{
+                  // marginBottom: "3px",
+                  padding: "0",
+                  width: "170px",
+                  height: "110px",
+                  borderTop: "2px solid #00a0e3",
+                  marginTop: "0px",
+                  // borderBottom: "2px solid #00a0e3",
+                }}
+                alt="Quickshot"
+                src={Quickshot}
+              />
+            </div>
+            <div className="top5Name" style={{ textAlign: "center" }}>
+              BONFIRE MAX
+            </div>
+            <div className="top5Ratings" style={{ textAlign: "center" }}>
+              new beginner workout
             </div>
           </div>
         </div>
