@@ -12,7 +12,7 @@ import browseBeginner from "../img/beginner.png";
 import browseAdvanced from "../img/advanced.png";
 import browseBeast from "../img/beast.png";
 import Quickshot from "../img/quickshot.png";
-import { useUtils } from "../";
+import { useUtils } from "../context/UtilContext";
 
 function Dashboard() {
   const me = useContext(MeContext);
