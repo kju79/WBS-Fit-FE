@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../styles.css";
 import Footer from "./Footer";
@@ -33,8 +33,8 @@ const Browse = () => {
         ></div>
         <div id="blank"></div>
         {browsedData &&
-          browsedData.map((item, i) => (
-            <>
+          browsedData.map((item) => (
+            <Fragment key={item._id}>
               {/* {console.log("standardSet : ", item.standardSet)}
               <div key={`workoutType${i}`}>{workouttype}</div>
               <Spacer />
@@ -62,7 +62,7 @@ const Browse = () => {
                 </div>
               </div>
               <Spacer />
-            </>
+            </Fragment>
           ))}
       </div>
       <Footer />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 // import "../styles.css";
 import Footer from "./Footer";
@@ -17,15 +17,32 @@ const Create = ({ data }) => {
   const [specs, setSpecs] = useState([
     {
       exercise_id: "",
-      reps: "",
-      weight: "",
-      sets: "",
     },
   ]);
 
-  const handleChange = (event) => {
-    setSpecs({ ...specs, [event.target.name]: event.target.value });
-    // console.log(specs);
+  useEffect(() => {
+    if (data) {
+      const exercises = data.map((item) => ({
+        exercise_id: item._id,
+        exercise_avatar: item.avatar,
+        exercise_name: item.name,
+      }));
+      setSpecs(exercises);
+      console.log(exercises);
+    }
+  }, [data]);
+
+  const handleChange = (event, id) => {
+    console.log({ targetId: id });
+    // setSpecs({ ...specs, [event.target.name]: event.target.value });
+    // let targetExercise
+    const targetExercise = specs.find((e) => e.exercise_id === id);
+    // if (!targetExercise)
+    targetExercise[event.target.name] = event.target.value;
+    // const restOfTheExercises = specs.filter(e => e.exercise_id != id)
+    setSpecs([...specs.filter((e) => e.exercise_id !== id), targetExercise]);
+
+    console.log(specs);
   };
   // setSpecs({ ...specs, exercise_id: data[0]._id });
 
@@ -65,6 +82,7 @@ const Create = ({ data }) => {
     // console.log(selectedExercises);
     // setSpecs({ ...specs, exercise_id: data[0]._id });
     console.log("specs : ", specs);
+    console.log("selExs : ", selectedExercises);
     const raw = JSON.stringify({
       name: `${workoutName}`,
       picture: "http://www.mischgeburten.net/picture.png",
@@ -119,57 +137,58 @@ const Create = ({ data }) => {
             </div>
 
             <div className="container" style={{ flexDirection: "column" }}>
-              {data.map((item) => (
-                <>
-                  <div
-                    key={item._id}
-                    className="setRoutineExerciseName"
-                    style={{ textAlign: "left", paddingLeft: "0px" }}
-                  >
-                    <img src={dumbbell} alt="icon" />
-                    {item._id}
-                  </div>
-                  <div
-                    className="setRoutine"
-                    style={{
-                      display: "flex",
-                      justifyContent: "start",
-                      alignItems: "center",
-                      paddingLeft: "70px",
-                      // border: "1px solid #f0f",
-                    }}
-                  >
-                    <span>sets</span>{" "}
-                    <input
-                      style={{ width: "25px" }}
-                      type="text"
-                      min="1"
-                      max="20"
-                      placeholder="-"
-                      name="sets"
-                      onChange={(e) => handleChange(e)}
-                    />
-                    <span>weight</span>
-                    <input
-                      style={{ width: "25px" }}
-                      type="text"
-                      min="1"
-                      max="100"
-                      placeholder="-"
-                      name="weight"
-                      onChange={(e) => handleChange(e)}
-                    />
-                    <span>reps</span>
-                    <input
-                      style={{ width: "25px" }}
-                      type="text"
-                      min="1"
-                      max="400"
-                      placeholder="-"
-                      name="reps"
-                      onChange={(e) => handleChange(e)}
-                    />
-                    {/* <input
+              {data.map((item) => {
+                console.log(item._id);
+                return (
+                  <Fragment key={item._id}>
+                    <div
+                      className="setRoutineExerciseName"
+                      style={{ textAlign: "left", paddingLeft: "0px" }}
+                    >
+                      <img src={dumbbell} alt="icon" />
+                      {item.name}
+                    </div>
+                    <div
+                      className="setRoutine"
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-start",
+                        alignItems: "center",
+                        paddingLeft: "70px",
+                        // border: "1px solid #f0f",
+                      }}
+                    >
+                      <span>sets</span>{" "}
+                      <input
+                        style={{ width: "25px" }}
+                        type="text"
+                        min="1"
+                        max="21"
+                        placeholder="-"
+                        name="sets"
+                        onChange={(e) => handleChange(e, item._id)}
+                      />
+                      <span>weight</span>
+                      <input
+                        style={{ width: "25px" }}
+                        type="text"
+                        min="1"
+                        max="100"
+                        placeholder="-"
+                        name="weight"
+                        onChange={(e) => handleChange(e, item._id)}
+                      />
+                      <span>reps</span>
+                      <input
+                        style={{ width: "25px" }}
+                        type="text"
+                        min="1"
+                        max="400"
+                        placeholder="-"
+                        name="reps"
+                        onChange={(e) => handleChange(e, item._id)}
+                      />
+                      {/* <input
                       style={{ width: "25px" }}
                       min="1"
                       max="180"
@@ -179,9 +198,10 @@ const Create = ({ data }) => {
                       onChange={(e) => handleChange(e)}
                     />
                     pause */}
-                  </div>
-                </>
-              ))}
+                    </div>
+                  </Fragment>
+                );
+              })}
             </div>
             <Spacer />
             <form onSubmit={printValues}>
@@ -216,10 +236,10 @@ const Create = ({ data }) => {
               </div>
               <div id="checkboxes">
                 <input
-                  checked
                   type="checkbox"
                   value="beginner"
                   name="beginner"
+                  checked={workoutType === "beginner"}
                   onChange={(event) => setWorkoutType(event.target.value)}
                 />
                 <span>beginner</span>
@@ -227,6 +247,7 @@ const Create = ({ data }) => {
                   type="checkbox"
                   value="advanced"
                   name="advanced"
+                  checked={workoutType === "advanced"}
                   onChange={(event) => setWorkoutType(event.target.value)}
                 />
                 <span>advanced</span>
@@ -234,6 +255,7 @@ const Create = ({ data }) => {
                   type="checkbox"
                   value="beast"
                   name="beast"
+                  checked={workoutType === "beast"}
                   onChange={(event) => setWorkoutType(event.target.value)}
                 />
                 <span>beast</span>
