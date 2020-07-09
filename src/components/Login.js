@@ -3,8 +3,11 @@ import "../styles.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Spacer from "./Spacer";
+import { useUtils } from "../context/UtilContext";
 
 function Login() {
+  const serverURL = useUtils();
+
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -26,7 +29,7 @@ function Login() {
       redirect: "follow",
     };
 
-    fetch("http://localhost:3002/api/user/login", requestOptions)
+    fetch(`${serverURL}/user/login`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
