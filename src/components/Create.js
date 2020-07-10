@@ -85,7 +85,7 @@ const Create = ({ data }) => {
     console.log("selExs : ", selectedExercises);
     const raw = JSON.stringify({
       name: `${workoutName}`,
-      picture: "http://www.mischgeburten.net/picture.png",
+      picture: "http://www.mischgeburten.net/17.png",
       description: "Just a workout",
       wo_type: workoutType,
       exercises: selectedExercises,
