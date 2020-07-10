@@ -8,6 +8,7 @@ import MeContext from "../context/MeContext";
 
 import Navbar from "../components/Navbar";
 import Burger from "../img/burger.png";
+import Timer from "../img/timer.png";
 
 const Browse = () => {
   const me = useContext(MeContext);
@@ -104,7 +105,12 @@ const Browse = () => {
             className="dashTopic"
             style={{ fontSize: "18px", padding: "5px" }}
           >
-            60 <span>-</span> 90 <span>-</span> 120
+            60 <span>-</span> 90 <span>-</span> 120{" "}
+            <img
+              src={Timer}
+              alt="timer"
+              style={{ height: "14px", margin: "0px 5px" }}
+            />
           </div>
         </div>
         <div className="routineWorkoutContainer">

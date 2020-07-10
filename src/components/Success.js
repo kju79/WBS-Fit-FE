@@ -14,11 +14,15 @@ const Browse = () => {
         <Navbar />
         <div
           id="blank"
-          style={{ display: "flex", flexDirection: "column" }}
+          style={{
+            marginBottom: "55px",
+            display: "flex",
+            flexDirection: "column",
+          }}
         ></div>
         <Link to={`/dashboard`}>
           <div className="container">
-            <div>workout successfully created</div>
+            <div style={{ color: "orange" }}>workout successfully created</div>
           </div>
         </Link>
       </div>

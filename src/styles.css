@@ -478,6 +478,7 @@ input[type="checkbox"] {
   width: 350px;
   flex-direction: row;
   text-align: center;
+  border: 1px solid #00a0e3;
   /* border: 1px solid pink; */
 }
 
