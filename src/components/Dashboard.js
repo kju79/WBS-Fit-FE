@@ -68,7 +68,8 @@ function Dashboard() {
           >
             {me && me.first_name && (
               <>
-                last workout : <span>2 days ago</span>
+                last workout :{" "}
+                <span style={{ marginRight: "5px" }}>2 days ago</span>
               </>
             )}
           </div>

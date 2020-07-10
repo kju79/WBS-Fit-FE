@@ -10,7 +10,7 @@ const Navbar = () => {
           <div id="logo">
             <div id="logoName">
               <Link to={`/dashboard`}>
-                W B S <span>F I T</span>
+                W B S <span style={{ color: "#fff" }}>F I T</span>
               </Link>
             </div>
             <div id="logoSlogan">a community based fitness app</div>
