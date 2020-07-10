@@ -23,7 +23,7 @@ function App() {
   const [trainingData, setTrainingData] = useState(null);
   const [chosenExData, setChosenExData] = useState([]);
   const [me, setMe] = useState(null);
-
+  // added patrick as user
   useEffect(() => {
     fetch(`${serverURL}/user/me/5f083fa8891ad414a8d97cf4`)
       .then((res) => res.json())
