@@ -25,7 +25,7 @@ function App() {
   const [me, setMe] = useState(null);
   // added patrick as user
   useEffect(() => {
-    fetch(`${serverURL}/user/me/5f083fa8891ad414a8d97cf4`)
+    fetch(`${serverURL}/user/me/5f088f1ff4dfab2b2072f0a2`)
       .then((res) => res.json())
       .then((data) => setMe(data));
   }, [serverURL]);
