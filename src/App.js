@@ -51,7 +51,7 @@ function App() {
             <Create data={chosenExData} />
           </Route>
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/" exact component={Login} />
+          <Route path="/" exact component={Dashboard} />
           <Route path="/browse/:workouttype" component={Browse} />
           <Route path="/success" component={Success} />
           <Route path="/me/routine/:routineId" component={Routine} />
